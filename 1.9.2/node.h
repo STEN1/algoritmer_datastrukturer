@@ -16,7 +16,7 @@ namespace ADS101
 		{
 		}
 
-		T& get() { return m_data; }
+		T get() { return m_data; }
 
 	private:
 		template<class T>
