@@ -1,31 +1,24 @@
 #pragma once
 
 #include <string>
-#include <list>
-
-namespace ASD101
+// hmm
+namespace ADS101
 {
-	class CharNode
+	class Node
 	{
 	public:
-		CharNode(char tegn = '0', CharNode* neste = nullptr);
-		~CharNode();
+		Node(char tegn = '0', Node* neste = nullptr);
+		~Node();
 
 		std::string toString() const;
-		CharNode* hentNeste() const ;
+		Node* hentNeste() const;
 		void skrivBaklengs() const;
 		static int hentAntall();
-		char hentData();
-
-		void push(char tegn);
-		void pop(CharNode*& node);
-		char top();
-		int size();
-		void empty(CharNode*& node);
+		char hentData() const;
 
 	private:
 		char m_tegn;
 		static int s_antall;
-		CharNode* m_neste;
+		Node* m_neste;
 	};
 }

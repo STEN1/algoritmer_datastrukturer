@@ -5,45 +5,37 @@
 */
 
 #include <iostream>
-#include "charnode.h"
+#include "charstack.h"
 
 
 
 int main()
 {
-	using namespace ASD101;
-	
-	CharNode* node_stack = new CharNode('a');
-	node_stack->skrivBaklengs();
-	std::cout << " size: " << node_stack->size() << std::endl;
-	node_stack->push('b');
-	node_stack->skrivBaklengs();
-	std::cout << " size: " << node_stack->size() << std::endl;
-	node_stack->push('c');
-	node_stack->skrivBaklengs();
-	std::cout << " size: " << node_stack->size() << std::endl;
+	using namespace ADS101;
 
-	std::cout << "top: " << node_stack->top() << std::endl;
-	std::cout << "size: " << node_stack->size() << std::endl;
-	node_stack->pop(node_stack);
-	std::cout << "top: " << node_stack->top() << std::endl;
-	std::cout << "size: " << node_stack->size() << std::endl;
-	node_stack->pop(node_stack);
-	std::cout << "top: " << node_stack->top() << std::endl;
-	std::cout << "size: " << node_stack->size() << std::endl;
-	node_stack->pop(node_stack);
-	std::cout << "size: " << node_stack->size() << std::endl;
+	Stack stack;
 
-	node_stack = new CharNode('a');
-	node_stack->skrivBaklengs();
-	std::cout << " size: " << node_stack->size() << std::endl;
-	node_stack->push('b');
-	node_stack->skrivBaklengs();
-	std::cout << " size: " << node_stack->size() << std::endl;
-	node_stack->push('c');
-	node_stack->skrivBaklengs();
-	std::cout << " size: " << node_stack->size() << std::endl;
+	std::cout << std::boolalpha;
+	std::cout << "empty? " << stack.empty() << std::endl;
 
-	node_stack->empty(node_stack);
-	std::cout << "size: " << node_stack->size() << std::endl;
+	stack.push('a');
+	std::cout << stack.top()->hentData();
+	stack.push('b');
+	std::cout << stack.top()->hentData();
+	stack.push('c');
+	std::cout << stack.top()->hentData();
+	std::cout << std::endl;
+
+	std::cout << std::boolalpha;
+	std::cout << "empty? " << stack.empty() << std::endl;
+
+	stack.pop();
+	std::cout << stack.top()->hentData();
+	stack.pop();
+	std::cout << stack.top()->hentData();
+	stack.pop();
+	// std::cout << stack.top()->hentData();
+	std::cout << std::endl;
+
+	std::cout << "empty? " << stack.empty() << std::endl;
 }
