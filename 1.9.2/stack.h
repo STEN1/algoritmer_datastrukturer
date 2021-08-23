@@ -8,6 +8,7 @@ namespace ADS101
 	{
 	public:
 		Stack();
+		~Stack();
 		T top() const;
 		bool empty() const;
 		int size();
@@ -26,6 +27,15 @@ namespace ADS101
 	inline Stack<T>::Stack()
 	:m_top(nullptr)
 	{
+	}
+
+	template<class T>
+	inline Stack<T>::~Stack()
+	{
+		while (m_top)
+		{
+			pop();
+		}
 	}
 
 	template<class T>

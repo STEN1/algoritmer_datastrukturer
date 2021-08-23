@@ -7,6 +7,7 @@ namespace ADS101
 	{
 	public:
 		Stack();
+		~Stack();
 
 		// access
 		char top() const;

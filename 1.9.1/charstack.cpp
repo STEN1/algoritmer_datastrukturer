@@ -7,6 +7,14 @@ ADS101::Stack::Stack()
 {
 }
 
+ADS101::Stack::~Stack()
+{
+	while (m_top)
+	{
+		pop();
+	}
+}
+
 char ADS101::Stack::top() const
 {
 	return m_top->hentData();
