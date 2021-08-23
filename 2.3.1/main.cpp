@@ -73,10 +73,6 @@ auto MakeRandomIntArray(const std::size_t& size)
 
 void WithSelectionSort()
 {
-	auto array1000 = MakeRandomIntArray(1000);
-	auto array10000 = MakeRandomIntArray(10000);
-	auto array100000 = MakeRandomIntArray(100000);
-
 	double totalTime1000 = 0.0;
 	double totalTime10000 = 0.0;
 	double totalTime100000 = 0.0;
@@ -86,14 +82,17 @@ void WithSelectionSort()
 	for (int i = 0; i < loops; i++)
 	{
 		{
+			auto array1000 = MakeRandomIntArray(1000);
 			Timer timer("Selection sort array1000", &totalTime1000);
 			SelectionSort(array1000);
 		}
 		{
+			auto array10000 = MakeRandomIntArray(10000);
 			Timer timer("Selection sort array10000", &totalTime10000);
 			SelectionSort(array10000);
 		}
 		{
+			auto array100000 = MakeRandomIntArray(100000);
 			Timer timer("Selection sort array100000", &totalTime100000);
 			SelectionSort(array100000);
 		}
@@ -109,10 +108,6 @@ void WithSelectionSort()
 
 void WithSTDsort()
 {
-	auto array1000 = MakeRandomIntArray(1000);
-	auto array10000 = MakeRandomIntArray(10000);
-	auto array100000 = MakeRandomIntArray(100000);
-
 	double totalTime1000 = 0.0;
 	double totalTime10000 = 0.0;
 	double totalTime100000 = 0.0;
@@ -122,14 +117,17 @@ void WithSTDsort()
 	for (int i = 0; i < loops; i++)
 	{
 		{
+			auto array1000 = MakeRandomIntArray(1000);
 			Timer timer("std::sort array1000", &totalTime1000);
 			std::sort(array1000.begin(), array1000.end());
 		}
 		{
+			auto array10000 = MakeRandomIntArray(10000);
 			Timer timer("std::sort array10000", &totalTime10000);
 			std::sort(array10000.begin(), array10000.end());
 		}
 		{
+			auto array100000 = MakeRandomIntArray(100000);
 			Timer timer("std::sort array100000", &totalTime100000);
 			std::sort(array100000.begin(), array100000.end());
 		}
