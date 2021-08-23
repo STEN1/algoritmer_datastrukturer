@@ -27,7 +27,7 @@ namespace ADS101
 	public:
 		Queue(const int& queueMaxSize);
 		~Queue();
-		void push(T&& data);
+		void push(T&& data) noexcept;
 		T front() const;
 		void pop();
 		int size() const;
@@ -54,7 +54,7 @@ namespace ADS101
 		delete[] m_data;
 	}
 	template<class T>
-	inline void Queue<T>::push(T&& data)
+	inline void Queue<T>::push(T&& data) noexcept
 	{
 		if (m_size == m_dataSize)
 		{
