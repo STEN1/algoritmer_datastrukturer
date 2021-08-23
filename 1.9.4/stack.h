@@ -1,4 +1,5 @@
 #pragma once
+#include <utility>
 
 namespace ADS101
 {
@@ -34,7 +35,7 @@ namespace ADS101
 		bool empty() const;
 		int size() const;
 
-		void push(const T& data);
+		void push(T&& data);
 		void pop();
 
 	private:
@@ -80,14 +81,14 @@ namespace ADS101
 	}
 
 	template<class T>
-	inline void Stack<T>::push(const T& data)
+	inline void Stack<T>::push(T&& data)
 	{
 		if ((m_top + 1) == m_maxDataSize)
 		{
 			return;
 		}
 		m_top++;
-		m_data[m_top] = data;
+		m_data[m_top] = std::forward<T>(data);
 	}
 
 	template<class T>

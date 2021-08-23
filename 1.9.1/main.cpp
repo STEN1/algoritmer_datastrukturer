@@ -19,20 +19,20 @@ int main()
 	std::cout << "empty? " << stack.empty() << std::endl;
 
 	stack.push('a');
-	std::cout << stack.top()->hentData();
+	std::cout << stack.top();
 	stack.push('b');
-	std::cout << stack.top()->hentData();
+	std::cout << stack.top();
 	stack.push('c');
-	std::cout << stack.top()->hentData();
+	std::cout << stack.top();
 	std::cout << std::endl;
 
 	std::cout << std::boolalpha;
 	std::cout << "empty? " << stack.empty() << std::endl;
 
 	stack.pop();
-	std::cout << stack.top()->hentData();
+	std::cout << stack.top();
 	stack.pop();
-	std::cout << stack.top()->hentData();
+	std::cout << stack.top();
 	stack.pop();
 	// std::cout << stack.top()->hentData();
 	std::cout << std::endl;

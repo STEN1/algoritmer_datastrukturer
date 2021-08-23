@@ -7,9 +7,9 @@ ADS101::Stack::Stack()
 {
 }
 
-ADS101::Node* ADS101::Stack::top() const
+char ADS101::Stack::top() const
 {
-	return m_top;
+	return m_top->hentData();
 }
 
 bool ADS101::Stack::empty()

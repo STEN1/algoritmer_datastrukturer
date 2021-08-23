@@ -27,7 +27,7 @@ namespace ADS101
 	public:
 		Queue(const int& queueMaxSize);
 		~Queue();
-		void push(const T& data);
+		void push(T&& data);
 		T front() const;
 		void pop();
 		int size() const;
@@ -54,18 +54,18 @@ namespace ADS101
 		delete[] m_data;
 	}
 	template<class T>
-	inline void Queue<T>::push(const T& data)
+	inline void Queue<T>::push(T&& data)
 	{
 		if (m_size == m_dataSize)
 		{
-			std::cout << "m_size >= m_dataSize " << data << " not added" << std::endl;
+			std::cout << "m_size >= m_dataSize " << std::forward<T>(data) << " not added" << std::endl;
 			return;
 		}
 		if (m_back == m_dataSize)
 		{
 			m_back = 0;
 		}
-		m_data[m_back] = data;
+		m_data[m_back] = std::forward<T>(data);
 		m_back++;
 		m_size++;
 	}

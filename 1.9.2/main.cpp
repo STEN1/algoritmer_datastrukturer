@@ -23,7 +23,7 @@ int main()
 	std::cout << "Print data:" << std::endl;
 	while (stack.size() > 0)
 	{
-		std::cout << stack.top()->get() << std::endl;
+		std::cout << stack.top() << std::endl;
 		stack.pop();
 	}
 	std::cout << "Size: " << stack.size() << std::endl;

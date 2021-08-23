@@ -9,7 +9,7 @@ namespace ADS101
 		Stack();
 
 		// access
-		Node* top() const;
+		char top() const;
 		// capacity
 		bool empty();
 		int size();

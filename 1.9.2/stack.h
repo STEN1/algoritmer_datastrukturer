@@ -13,7 +13,7 @@ namespace ADS101
 		}
 
 		// access
-		Node<T>* top() const { return m_top; };
+		T top() const { return m_top->get(); };
 		// capacity
 		bool empty()
 		{
