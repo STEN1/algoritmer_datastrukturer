@@ -10,13 +10,8 @@ namespace ADS101
 	class Node
 	{
 	public:
-		Node(T&& data, Node<T>* next = nullptr)
-		:m_data(std::forward<T>(data))
-		,m_next(next)
-		{
-		}
-
-		T get() { return m_data; }
+		Node(T&& data, Node<T>* next = nullptr);
+		T get();
 
 	private:
 		template<class T>
@@ -24,4 +19,17 @@ namespace ADS101
 		T m_data;
 		Node<T>* m_next;
 	};
+
+	template<class T>
+	inline Node<T>::Node(T&& data, Node<T>* next)
+		:m_data(std::forward<T>(data))
+		, m_next(next)
+	{
+	}
+
+	template<class T>
+	inline T Node<T>::get()
+	{
+		return m_data;
+	}
 }
