@@ -41,7 +41,7 @@ namespace ADS101
 	template<class T>
 	inline T Stack<T>::top() const
 	{
-		return m_top->get();
+		return m_top->m_data;
 	}
 
 	template<class T>
