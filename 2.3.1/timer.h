@@ -7,10 +7,10 @@
 class Timer
 {
 public:
-    Timer(std::string tname = "", double* outTime = nullptr)
+    Timer(std::string tname = "", double* outCumulativeTime = nullptr)
         :start_count(std::chrono::high_resolution_clock::now())
         ,timer_name(tname)
-        ,m_outTime(outTime)
+        ,m_outCumulativeTime(outCumulativeTime)
     {
     }
     ~Timer()
@@ -21,14 +21,14 @@ public:
         auto end = std::chrono::time_point_cast<std::chrono::nanoseconds>(end_count).time_since_epoch().count();
 
         auto duration = (end - start) * 0.000000001; // convert to seconds
-        if (m_outTime)
+        if (m_outCumulativeTime)
         {
-            (*m_outTime) = duration;
+            (*m_outCumulativeTime) += duration;
         }
         std::cout << timer_name << " timer: " << duration << "s" << std::endl;
     }
 private:
     std::chrono::time_point<std::chrono::high_resolution_clock> start_count;
     std::string timer_name;
-    double* m_outTime;
+    double* m_outCumulativeTime;
 };

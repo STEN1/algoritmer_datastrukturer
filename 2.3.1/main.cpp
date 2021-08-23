@@ -77,19 +77,34 @@ void WithSelectionSort()
 	auto array10000 = MakeRandomIntArray(10000);
 	auto array100000 = MakeRandomIntArray(100000);
 
-	{
-		Timer timer("Selection sort array1000");
-		SelectionSort(array1000);
-	}
-	{
-		Timer timer("Selection sort array10000");
-		SelectionSort(array10000);
-	}
-	{
-		Timer timer("Selection sort array100000");
-		SelectionSort(array100000);
+	double totalTime1000 = 0.0;
+	double totalTime10000 = 0.0;
+	double totalTime100000 = 0.0;
 
+	int loops = 10;
+
+	for (int i = 0; i < loops; i++)
+	{
+		{
+			Timer timer("Selection sort array1000", &totalTime1000);
+			SelectionSort(array1000);
+		}
+		{
+			Timer timer("Selection sort array10000", &totalTime10000);
+			SelectionSort(array10000);
+		}
+		{
+			Timer timer("Selection sort array100000", &totalTime100000);
+			SelectionSort(array100000);
+		}
 	}
+
+	std::cout << "-------------------------------------" << std::endl;
+	std::cout << "SelectionSort average runtime with " << loops << " loops." << std::endl;
+	std::cout << "array1000: " << totalTime1000 / loops << std::endl;
+	std::cout << "array10000: " << totalTime10000 / loops << std::endl;
+	std::cout << "array100000: " << totalTime100000 / loops << std::endl;
+	std::cout << "-------------------------------------" << std::endl;
 }
 
 void WithSTDsort()
@@ -98,19 +113,36 @@ void WithSTDsort()
 	auto array10000 = MakeRandomIntArray(10000);
 	auto array100000 = MakeRandomIntArray(100000);
 
+	double totalTime1000 = 0.0;
+	double totalTime10000 = 0.0;
+	double totalTime100000 = 0.0;
+
+	int loops = 10;
+
+	for (int i = 0; i < loops; i++)
 	{
-		Timer timer("std::sort array1000");
-		std::sort(array1000.begin(), array1000.end());
+		{
+			Timer timer("std::sort array1000", &totalTime1000);
+			std::sort(array1000.begin(), array1000.end());
+		}
+		{
+			Timer timer("std::sort array10000", &totalTime10000);
+			std::sort(array10000.begin(), array10000.end());
+		}
+		{
+			Timer timer("std::sort array100000", &totalTime100000);
+			std::sort(array100000.begin(), array100000.end());
+		}
 	}
-	{
-		Timer timer("std::sort array10000");
-		std::sort(array10000.begin(), array10000.end());
-	}
-	{
-		Timer timer("std::sort array100000");
-		std::sort(array100000.begin(), array100000.end());
-	}
+
+	std::cout << "-------------------------------------" << std::endl;
+	std::cout << "std::sort average runtime with " << loops << " loops." << std::endl;
+	std::cout << "array1000: " << totalTime1000 / loops << std::endl;
+	std::cout << "array10000: " << totalTime10000 / loops << std::endl;
+	std::cout << "array100000: " << totalTime100000 / loops << std::endl;
+	std::cout << "-------------------------------------" << std::endl;
 }
+
 
 int main()
 {
