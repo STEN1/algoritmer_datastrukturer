@@ -16,6 +16,6 @@ int main()
 	Vector2d b{ 1, 0 };
 	Vector2d c{ 0.5, 1 };
 	
-	PlainTriangle::subDivide(a, b, c, 0.1);
+	PlainTriangle::subDivide(a, b, c, 0.02);
 	PlainTriangle::print();
 }
