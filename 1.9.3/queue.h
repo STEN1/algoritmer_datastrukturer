@@ -28,6 +28,7 @@ namespace ADS101
 		Queue(const int& queueMaxSize);
 		~Queue();
 		void push(T&& data) noexcept;
+		void push(const T& data);
 		T front() const;
 		void pop();
 		int size() const;
@@ -58,14 +59,28 @@ namespace ADS101
 	{
 		if (m_size == m_dataSize)
 		{
-			std::cout << "m_size >= m_dataSize " << std::forward<T>(data) << " not added" << std::endl;
-			return;
+			pop();
 		}
 		if (m_back == m_dataSize)
 		{
 			m_back = 0;
 		}
-		m_data[m_back] = std::forward<T>(data);
+		m_data[m_back] = std::move(data);
+		m_back++;
+		m_size++;
+	}
+	template<class T>
+	inline void Queue<T>::push(const T& data)
+	{
+		if (m_size == m_dataSize)
+		{
+			pop();
+		}
+		if (m_back == m_dataSize)
+		{
+			m_back = 0;
+		}
+		m_data[m_back] = data;
 		m_back++;
 		m_size++;
 	}

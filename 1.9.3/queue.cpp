@@ -19,8 +19,7 @@ void ADS101::CharQueue::push(const char& data)
 {
 	if (m_size == m_dataSize)
 	{
-		std::cout << "m_size >= m_dataSize " << data << " not added" << std::endl;
-		return;
+		pop();
 	}
 	if (m_back == m_dataSize)
 	{

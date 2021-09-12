@@ -36,6 +36,7 @@ namespace ADS101
 		int size() const;
 
 		void push(T&& data) noexcept;
+		void push(const T& data);
 		void pop();
 
 	private:
@@ -88,7 +89,18 @@ namespace ADS101
 			return;
 		}
 		m_top++;
-		m_data[m_top] = std::forward<T>(data);
+		m_data[m_top] = std::move(data);
+	}
+
+	template<class T>
+	inline void Stack<T>::push(const T& data)
+	{
+		if ((m_top + 1) == m_maxDataSize)
+		{
+			return;
+		}
+		m_top++;
+		m_data[m_top] = data;
 	}
 
 	template<class T>

@@ -13,6 +13,7 @@ namespace ADS101
 		bool empty() const;
 		int size();
 		void push(T&& data) noexcept;
+		void push(const T& data);
 		void pop();
 
 	private:
@@ -65,12 +66,27 @@ namespace ADS101
 	{
 		if (m_top)
 		{
-			m_top = new Node<T>(std::forward<T>(data), m_top);
+			m_top = new Node<T>(std::move(data), m_top);
 			s_size++;
 		}
 		else
 		{
-			m_top = new Node<T>(std::forward<T>(data));
+			m_top = new Node<T>(std::move(data));
+			s_size++;
+		}
+	}
+
+	template<class T>
+	inline void Stack<T>::push(const T& data)
+	{
+		if (m_top)
+		{
+			m_top = new Node<T>(data, m_top);
+			s_size++;
+		}
+		else
+		{
+			m_top = new Node<T>(data);
 			s_size++;
 		}
 	}

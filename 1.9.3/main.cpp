@@ -15,14 +15,14 @@ void char_queue_example()
 
 	charQueue.push('a');
 	charQueue.push('b');
-	charQueue.push('c');
+	charQueue.push('c'); // not printed because pushing 'h' will pop this since queue size is 5.
 	charQueue.push('d');
 	charQueue.push('e');
 	charQueue.pop();
 	charQueue.pop();
 	charQueue.push('f'); 
 	charQueue.push('g');
-	charQueue.push('h'); // can't add more elements than queue max size
+	charQueue.push('h');
 	std::cout << "Size: " << charQueue.size() << std::endl;
 	std::cout << "Printing queue data:" << std::endl;
 	while (charQueue.size() > 0)
@@ -38,16 +38,18 @@ void queue_T_example()
 	using CharQueue_T = ADS101::Queue<char>;
 	CharQueue_T charQueue(5);
 
-	charQueue.push('a');
+	char a = 'a';
+
+	charQueue.push(a);
 	charQueue.push('b');
-	charQueue.push('c');
+	charQueue.push('c'); // not printed because pushing 'h' will pop this since queue size is 5.
 	charQueue.push('d');
 	charQueue.push('e');
 	charQueue.pop();
 	charQueue.pop();
 	charQueue.push('f');
 	charQueue.push('g');
-	charQueue.push('h'); // can't add more elements than queue max size
+	charQueue.push('h');
 	std::cout << "Size: " << charQueue.size() << std::endl;
 	std::cout << "Printing queue data:" << std::endl;
 	while (charQueue.size() > 0)

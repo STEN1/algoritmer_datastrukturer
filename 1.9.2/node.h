@@ -11,6 +11,7 @@ namespace ADS101
 	{
 	public:
 		Node(T&& data, Node<T>* next = nullptr);
+		Node(const T& data, Node<T>* next = nullptr);
 
 	private:
 		template<class T>
@@ -21,8 +22,15 @@ namespace ADS101
 
 	template<class T>
 	inline Node<T>::Node(T&& data, Node<T>* next)
-		:m_data(std::forward<T>(data))
-		, m_next(next)
+		:m_data(std::move(data))
+		,m_next(next)
+	{
+	}
+
+	template<class T>
+	inline Node<T>::Node(const T& data, Node<T>* next)
+		:m_data(data)
+		,m_next(next)
 	{
 	}
 }
