@@ -25,6 +25,9 @@ tilpasse en glatt kurve til dataene i hvert tilfelle.
 
 #include "timer.h"
 
+
+
+
 template<typename Container>
 void SelectionSort(Container& c)
 {
