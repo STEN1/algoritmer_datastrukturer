@@ -46,9 +46,59 @@ Endre insert i avsnitt 4.1.9 slik at det går an å sette inn duplikater.
 
 #include "binarytree.h"
 #include <iostream>
+#include <stack>
 
+using namespace std;
+
+template<NodeType T>
+void ikke_rekursiv_inorder(BinaryNode<T>* btre)
+{
+	stack<decltype(btre)> s;
+	do
+	{
+		while (btre != nullptr)
+		{
+			s.push(btre);
+			btre = btre->left();
+		}
+		if (!s.empty())
+		{
+			cout << s.top()->get();
+			btre = s.top()->right();
+			s.pop();
+		}
+	} while (!s.empty() || btre != nullptr);
+}
 
 int main()
 {
 	std::cout << "lol\n";
+
+	using BinaryNode = BinaryNode<char>;
+
+	BinaryNode* h = new BinaryNode('d');
+	BinaryNode* v = new BinaryNode('a');
+	v = new BinaryNode('b', v, h);
+	// peker h er ledig
+	BinaryNode* btre = new BinaryNode('g');
+	h = new BinaryNode('p');
+	btre = new BinaryNode('i', btre, h);
+	btre = new BinaryNode('f', v, btre);
+
+	/*
+			   f
+			/	  \
+		   b	   i
+		 /  \	  /  \
+		a    d	 g	  p
+	*/
+
+	cout << "rekursiv inorder: ";
+	btre->intrav();
+	cout << endl;
+
+	// oppdage 4.4.5
+	cout << "ikke rekursiv inorder: ";
+	ikke_rekursiv_inorder(btre);
+	cout << endl;
 }
