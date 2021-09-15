@@ -70,6 +70,33 @@ void ikke_rekursiv_inorder(BinaryNode<T>* btre)
 	} while (!s.empty() || btre != nullptr);
 }
 
+template<NodeType T>
+void ikke_rekursiv_postorder(BinaryNode<T>* btre)
+{
+	stack<decltype(btre)> ts;
+	stack<decltype(btre)> s;
+	do
+	{
+		while (btre != nullptr)
+		{
+			ts.push(btre);
+			s.push(btre);
+			btre = btre->right();
+		}
+		if (!ts.empty())
+		{
+			btre = ts.top()->left();
+			ts.pop();
+		}
+	} while (!ts.empty() || btre != nullptr);
+	while (!s.empty())
+	{
+		cout << s.top()->get();
+		s.pop();
+	}
+}
+
+
 int main()
 {
 	std::cout << "lol\n";
@@ -93,12 +120,23 @@ int main()
 		a    d	 g	  p
 	*/
 
-	cout << "rekursiv inorder: ";
+	cout << "rekursiv inorder:\t\t";
 	btre->intrav();
 	cout << endl;
 
 	// oppdage 4.4.5
-	cout << "ikke rekursiv inorder: ";
+	cout << "ikke rekursiv inorder:\t\t";
 	ikke_rekursiv_inorder(btre);
+	cout << endl;
+
+	cout << endl;
+
+	cout << "rekursiv postorder:\t\t";
+	btre->postorder();
+	cout << endl;
+
+	// oppdage 4.4.6
+	cout << "ikke rekursiv postorder:\t";
+	ikke_rekursiv_postorder(btre);
 	cout << endl;
 }

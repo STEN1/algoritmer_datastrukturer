@@ -23,6 +23,7 @@ public:
 	BinaryNode* find(const T& data) const;
 	void insert(const T& data);
 	void intrav() const;
+	void postorder() const;
 
 	BinaryNode* left() const;
 	BinaryNode* right() const;
@@ -84,6 +85,16 @@ inline void BinaryNode<T>::intrav() const
 	std::cout << data_;
 	if (right_)
 		right_->intrav();
+}
+
+template<NodeType T>
+inline void BinaryNode<T>::postorder() const
+{
+	if (left_)
+		left_->postorder();
+	if (right_)
+		right_->postorder();
+	std::cout << data_;
 }
 
 template<NodeType T>
