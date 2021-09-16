@@ -21,6 +21,8 @@ public:
 	BinaryNode(const T& data, BinaryNode* left = nullptr, BinaryNode* right = nullptr);
 	const T& get() const;
 	BinaryNode* find(const T& data) const;
+	int size() const;
+	int depth() const;
 	void insert(const T& data);
 	void intrav() const;
 	void postorder() const;
@@ -28,6 +30,8 @@ public:
 	BinaryNode* left() const;
 	BinaryNode* right() const;
 private:
+	void rek_size(int& size) const;
+	void rek_depth(int* arr, int& index, const int& depth) const;
 
 	T data_;
 	BinaryNode* left_;
@@ -107,4 +111,63 @@ template<NodeType T>
 inline BinaryNode<T>* BinaryNode<T>::right() const
 {
 	return right_;
+}
+
+template<NodeType T>
+inline int BinaryNode<T>::size() const
+{
+	int size{ 1 };
+
+	if (left_)
+		left_->rek_size(size);
+	if (right_)
+		right_->rek_size(size);
+
+	return size;
+}
+
+template<NodeType T>
+inline void BinaryNode<T>::rek_size(int& size) const
+{
+	size++;
+	if (left_)
+		left_->rek_size(size);
+	if (right_)
+		right_->rek_size(size);
+}
+
+template<NodeType T>
+inline int BinaryNode<T>::depth() const
+{
+	const auto N = size();
+	int* arr = new int[N]; // worst case så er dybden lik størrelsen
+	for (auto i = 0; i < N; i++)
+		arr[i] = -1;
+	int index{};
+	rek_depth(arr, index, -1);
+	int deepest{};
+	for (auto i = 0; i < N; i++)
+		if (arr[i] > deepest)
+			deepest = arr[i];
+	return deepest;
+}
+
+template<NodeType T>
+inline void BinaryNode<T>::rek_depth(int* arr, int& index, const int& depth) const
+{
+	
+	if (left_ && right_)
+	{
+		left_->rek_depth(arr, index, depth + 1);
+		right_->rek_depth(arr, index, depth + 1);
+	}
+	else if (left_)
+		left_->rek_depth(arr, index, depth + 1);
+	else if (right_)
+		right_->rek_depth(arr, index, depth + 1);
+	else
+	{
+		arr[index] = depth + 1;
+		index++;
+	}
 }

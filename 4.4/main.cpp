@@ -96,6 +96,25 @@ void ikke_rekursiv_postorder(BinaryNode<T>* btre)
 	}
 }
 
+template<NodeType T>
+bool is_balanced_tree(BinaryNode<T>* btre)
+{
+	auto left = btre->left();
+	auto right = btre->right();
+	if (left && right)
+	{
+		auto left_depth = left->depth();
+		auto right_depth = right->depth();
+
+		auto balance = abs(left_depth - right_depth);
+
+		if (balance > 1)
+			return false;
+		else 
+			return true;
+	}
+	return false;
+}
 
 int main()
 {
@@ -124,7 +143,7 @@ int main()
 	btre->intrav();
 	cout << endl;
 
-	// oppdage 4.4.5
+	// oppgage 4.4.5
 	cout << "ikke rekursiv inorder:\t\t";
 	ikke_rekursiv_inorder(btre);
 	cout << endl;
@@ -135,8 +154,19 @@ int main()
 	btre->postorder();
 	cout << endl;
 
-	// oppdage 4.4.6
+	// oppgage 4.4.6
 	cout << "ikke rekursiv postorder:\t";
 	ikke_rekursiv_postorder(btre);
 	cout << endl;
+
+	cout << endl;
+
+	// oppgave 4.4.7
+	cout << "Antall noder: " << btre->size() << endl;
+
+	// oppgave 4.4.8
+	cout << "dybde i tre: " << btre->depth() << endl;
+
+	// oppgave 4.4.9
+	cout << boolalpha << "balansert: " << is_balanced_tree(btre) << endl;
 }
