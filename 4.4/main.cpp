@@ -50,7 +50,7 @@ Endre insert i avsnitt 4.1.9 slik at det går an å sette inn duplikater.
 
 using namespace std;
 
-template<NodeType T>
+template<typename T>
 void ikke_rekursiv_inorder(BinaryNode<T>* btre)
 {
 	stack<decltype(btre)> s;
@@ -70,7 +70,7 @@ void ikke_rekursiv_inorder(BinaryNode<T>* btre)
 	} while (!s.empty() || btre != nullptr);
 }
 
-template<NodeType T>
+template<typename T>
 void ikke_rekursiv_postorder(BinaryNode<T>* btre)
 {
 	stack<decltype(btre)> ts;
@@ -96,7 +96,7 @@ void ikke_rekursiv_postorder(BinaryNode<T>* btre)
 	}
 }
 
-template<NodeType T>
+template<typename T>
 bool is_balanced_tree(BinaryNode<T>* btre)
 {
 	auto left = btre->left();
