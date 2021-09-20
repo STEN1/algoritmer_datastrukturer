@@ -141,14 +141,13 @@ inline int BinaryNode<T>::depth() const
 {
 	const auto N = size();
 	int* arr = new int[N]; // worst case så er dybden lik størrelsen
-	for (auto i = 0; i < N; i++)
-		arr[i] = -1;
 	int index{};
 	rek_depth(arr, index, -1);
 	int deepest{};
-	for (auto i = 0; i < N; i++)
+	for (auto i = 0; i < index; i++)
 		if (arr[i] > deepest)
 			deepest = arr[i];
+	delete[] arr;
 	return deepest;
 }
 
