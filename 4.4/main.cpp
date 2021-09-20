@@ -167,6 +167,12 @@ int main()
 	// oppgave 4.4.8
 	cout << "dybde i tre: " << btre->depth() << endl;
 
+	cout << endl;
+	cout << "not cursed versions" << endl;
+	cout << "Antall noder: " << btre->not_cursed_size() << endl;
+	cout << "dybde i tre: " << btre->not_cursed_depth() << endl;
+
 	// oppgave 4.4.9
-	cout << boolalpha << "balansert: " << is_balanced_tree(btre) << endl;
+	cout << boolalpha << endl << "balansert: " << is_balanced_tree(btre) << endl;
+
 }

@@ -23,6 +23,8 @@ public:
 	BinaryNode* find(const T& data) const;
 	int size() const;
 	int depth() const;
+	int not_cursed_depth() const;
+	int not_cursed_size() const;
 	void insert(const T& data);
 	void intrav() const;
 	void postorder() const;
@@ -144,7 +146,7 @@ inline int BinaryNode<T>::depth() const
 	int index{};
 	rek_depth(arr, index, -1);
 	int deepest{};
-	for (auto i = 0; i < index; i++)
+	for (int i = 0; i < index; i++)
 		if (arr[i] > deepest)
 			deepest = arr[i];
 	delete[] arr;
@@ -169,4 +171,22 @@ inline void BinaryNode<T>::rek_depth(int* arr, int& index, const int& depth) con
 		arr[index] = depth + 1;
 		index++;
 	}
+}
+
+template<NodeType T>
+inline int BinaryNode<T>::not_cursed_depth() const
+{
+	return 0;
+}
+
+template<NodeType T>
+inline int BinaryNode<T>::not_cursed_size() const
+{
+	if (left_ && right_)
+		return 1 + left_->not_cursed_size() + right_->not_cursed_size();
+	else if (left_)
+		return 1 + left_->not_cursed_size();
+	else if (right_)
+		return 1 + right_->not_cursed_size();
+	return 1;
 }
