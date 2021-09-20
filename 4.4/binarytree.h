@@ -176,7 +176,18 @@ inline void BinaryNode<T>::rek_depth(int* arr, int& index, const int& depth) con
 template<NodeType T>
 inline int BinaryNode<T>::not_cursed_depth() const
 {
-	return 0;
+	int left_depth{};
+	int right_depth{};
+
+	if (left_)
+		left_depth = 1 + left_->not_cursed_depth();
+	if (right_)
+		right_depth = 1 + right_->not_cursed_depth();
+
+	if (left_depth > right_depth)
+		return left_depth;
+	else 
+		return right_depth;
 }
 
 template<NodeType T>

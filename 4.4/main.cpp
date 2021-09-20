@@ -139,6 +139,7 @@ int main()
 		a    d	 g	  p
 	*/
 
+
 	cout << "rekursiv inorder:\t\t";
 	btre->intrav();
 	cout << endl;
