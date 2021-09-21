@@ -25,38 +25,32 @@ struct Vector2d
 		return sqrt(x * x + y * y);
 	}
 };
-
-std::ostream& operator << (std::ostream& out, const Vector2d& v)
-{
-	out << "(" << v.x << ", " << v.y << ")";
-	return out;
-}
-
+std::ostream& operator << (std::ostream& out, const Vector2d& v);
 struct Rect
 {
 	Vector2d a, b, c, d;
+	Vector2d mid();
 };
+std::ostream& operator << (std::ostream& out, const Rect& r);
 
-std::ostream& operator << (std::ostream& out, const Rect& r)
-{
-	out << r.a << ' ' << r.b << ' ' << r.c << ' ' << r.d;
-	return out;
-}
-
-template<typename T>
-concept NodeType = requires (T data)
-{
-	std::cout << data;
-};
-
-template<NodeType T>
 class QuadNode 
 {
 public:
 	QuadNode() = delete;
-	QuadNode(const T& data, QuadNode* a = nullptr, QuadNode* b = nullptr, QuadNode* c = nullptr, QuadNode* d = nullptr)
-		:data_(data), a_(a), b_(b), c_(c), d_(d){}
+	QuadNode(const Rect& rect, QuadNode* parent = nullptr);
+	~QuadNode();
+
+	void divide();
+	void collapse();
+
+	void print() const;
+
+	QuadNode* a() { return a_; }
+	QuadNode* b() { return b_; }
+	QuadNode* c() { return c_; }
+	QuadNode* d() { return d_; }
+
 private:
-	T data_;
-	QuadNode* a_,* b_,* c_,* d_;
+	Rect rect_;
+	QuadNode* a_,* b_,* c_,* d_,* parent_;
 };

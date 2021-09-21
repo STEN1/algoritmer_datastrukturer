@@ -5,10 +5,13 @@ int main()
 {
 	Rect r = {
 		{0, 0},
-		{0, 1},
-		{1, 1},
 		{1, 0},
+		{1, 1},
+		{0, 1},
 	};
 
-	std::cout << r;
+	QuadNode qtre = { r };
+	qtre.divide();
+	qtre.a()->divide();
+	qtre.print();
 }

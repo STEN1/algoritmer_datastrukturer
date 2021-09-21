@@ -3,7 +3,6 @@
 4.4.1
 List opp minst to ulike innsettings-rekkefølger for de binære søketrærne på fi -
 gur 4.1 og figur 4.2.
-Inorder, postorder og preorder.
 
 4.4.2
 Skriv opp rekkefølgen ved preorder traversering av de binære søketrærne på
