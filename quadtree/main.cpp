@@ -10,8 +10,32 @@ int main()
 		{0, 1},
 	};
 
-	QuadNode qtre = { r };
-	qtre.divide();
-	qtre.a()->divide();
-	qtre.print();
+	//QuadNode qtre = { r };
+	//qtre.divide();
+	//qtre.sv()->divide();
+	//qtre.print_corners();
+	//std::cout << std::endl;
+
+	QuadNode gameworld{ r };
+	gameworld.print_corners();
+	std::cout << std::endl << std::boolalpha;
+	for (size_t i = 0; i < 64; i++)
+	{
+		std::string name;
+		(rand() % 2) ? name = "Adrian" : name = "Espen";
+		Vector2d pos = {
+			((double)rand() / (double)RAND_MAX),
+			((double)rand() / (double)RAND_MAX)
+		};
+		if (auto [node, confirmation] = gameworld.insert_gameobject({ name, pos }); confirmation)
+		{
+			std::cout << "inserted gameobject: " << name << ' ' << pos << " in: ";
+			node->print_corners();
+		}
+		else
+		{
+			std::cout << "failed insert for pos: " << pos << std::endl;
+		}
+	}
+	gameworld.print_corners();
 }

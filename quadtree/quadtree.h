@@ -1,7 +1,8 @@
 #pragma once
 #include <cmath>
 #include <iostream>
-
+#include <string>
+#include <vector>
 
 struct Vector2d
 {
@@ -30,8 +31,18 @@ struct Rect
 {
 	Vector2d a, b, c, d;
 	Vector2d mid();
+	bool intersect(const Vector2d& pos);
 };
 std::ostream& operator << (std::ostream& out, const Rect& r);
+struct GameObject
+{
+	Vector2d pos;
+	std::string name;
+
+	GameObject() = delete;
+	GameObject(const std::string& name, const Vector2d& pos) : name(name), pos(pos) {}
+};
+std::ostream& operator << (std::ostream& out, const GameObject& r);
 
 class QuadNode 
 {
@@ -43,14 +54,18 @@ public:
 	void divide();
 	void collapse();
 
-	void print() const;
+	void print_corners() const;
+	std::pair<QuadNode*, bool> insert_gameobject(const GameObject& gameobject);
 
-	QuadNode* a() { return a_; }
-	QuadNode* b() { return b_; }
-	QuadNode* c() { return c_; }
-	QuadNode* d() { return d_; }
+	QuadNode* sv() { return sv_; }
+	QuadNode* so() { return so_; }
+	QuadNode* no() { return no_; }
+	QuadNode* nv() { return nv_; }
 
 private:
 	Rect rect_;
-	QuadNode* a_,* b_,* c_,* d_,* parent_;
+	QuadNode* sv_,* so_,* no_,* nv_,* parent_;
+	std::vector<GameObject> gameobjects_;
+	uint8_t max_gameobjects;
+	std::vector<QuadNode*> childnodes_;
 };

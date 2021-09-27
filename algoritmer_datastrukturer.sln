@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio Version 16
-VisualStudioVersion = 16.0.31515.178
+# Visual Studio Version 17
+VisualStudioVersion = 17.0.31717.71
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "01. Lineære datastrukturer", "01. Lineære datastrukturer", "{7E17517B-A66C-4F1F-AA97-3C92A14D608B}"
 EndProject
@@ -42,6 +42,8 @@ EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "4.4", "4.4\4.4.vcxproj", "{D1514957-D1BA-4EAF-8839-EFDF0164C0ED}"
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "quadtree", "quadtree\quadtree.vcxproj", "{66B44D25-4F0F-4595-BD67-2DD15CA9094C}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "dag_set_eks", "dag_set_eks\dag_set_eks.vcxproj", "{EC4ED6B0-8113-4DA0-9D9B-905DA506594E}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -131,6 +133,14 @@ Global
 		{66B44D25-4F0F-4595-BD67-2DD15CA9094C}.Release|x64.Build.0 = Release|x64
 		{66B44D25-4F0F-4595-BD67-2DD15CA9094C}.Release|x86.ActiveCfg = Release|Win32
 		{66B44D25-4F0F-4595-BD67-2DD15CA9094C}.Release|x86.Build.0 = Release|Win32
+		{EC4ED6B0-8113-4DA0-9D9B-905DA506594E}.Debug|x64.ActiveCfg = Debug|x64
+		{EC4ED6B0-8113-4DA0-9D9B-905DA506594E}.Debug|x64.Build.0 = Debug|x64
+		{EC4ED6B0-8113-4DA0-9D9B-905DA506594E}.Debug|x86.ActiveCfg = Debug|Win32
+		{EC4ED6B0-8113-4DA0-9D9B-905DA506594E}.Debug|x86.Build.0 = Debug|Win32
+		{EC4ED6B0-8113-4DA0-9D9B-905DA506594E}.Release|x64.ActiveCfg = Release|x64
+		{EC4ED6B0-8113-4DA0-9D9B-905DA506594E}.Release|x64.Build.0 = Release|x64
+		{EC4ED6B0-8113-4DA0-9D9B-905DA506594E}.Release|x86.ActiveCfg = Release|Win32
+		{EC4ED6B0-8113-4DA0-9D9B-905DA506594E}.Release|x86.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -146,6 +156,7 @@ Global
 		{2CE29143-CA7D-422D-9AF7-90437AF56DB4} = {D38321EA-777A-439A-8633-3FE48219FCA5}
 		{D1514957-D1BA-4EAF-8839-EFDF0164C0ED} = {530BD7C0-5AFD-4CBE-9489-76AB15A10ACF}
 		{66B44D25-4F0F-4595-BD67-2DD15CA9094C} = {A5E64D9C-19DE-4DC9-B8B3-343BCA4C5A19}
+		{EC4ED6B0-8113-4DA0-9D9B-905DA506594E} = {A5E64D9C-19DE-4DC9-B8B3-343BCA4C5A19}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {5B920372-553C-4D84-BA1B-B197F2818BF7}
