@@ -10,12 +10,6 @@ int main()
 		{0, 1},
 	};
 
-	//QuadNode qtre = { r };
-	//qtre.divide();
-	//qtre.sv()->divide();
-	//qtre.print_corners();
-	//std::cout << std::endl;
-
 	QuadNode gameworld{ r };
 	gameworld.print_corners();
 	std::cout << std::endl << std::boolalpha;

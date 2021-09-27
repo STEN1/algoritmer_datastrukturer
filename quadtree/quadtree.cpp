@@ -19,7 +19,6 @@ void QuadNode::divide()
 	auto z = (rect_.c + rect_.d) / 2.0;
 	auto w = (rect_.d + rect_.a) / 2.0;
 
-
 	sv_ = new QuadNode({ rect_.a, x, m, w }, this);
 	so_ = new QuadNode({ x, rect_.b, y, m }, this);
 	no_ = new QuadNode({ m, y, rect_.c, z }, this);
@@ -33,6 +32,8 @@ void QuadNode::divide()
 
 void QuadNode::collapse()
 {
+	// TODO(Sten): make some kind of function to collaps when sum
+	// of parent node children is <= max_gameobjecs??
 	delete sv_;
 	delete so_;
 	delete no_;
@@ -41,6 +42,7 @@ void QuadNode::collapse()
 
 void QuadNode::print_corners() const
 {
+	// recursive printing of all corners for all nodes
 	std::cout << rect_ << std::endl;
 	for (auto node : childnodes_)
 		node->print_corners();
@@ -48,6 +50,9 @@ void QuadNode::print_corners() const
 
 void QuadNode::print_leaf_corners() const
 {
+	// since a leaf has no children, simply check for children.
+	// divide() populates the childnodes_ vector.
+	// manual insertion will fuck this :)
 	if (childnodes_.size() == 0)
 		std::cout << rect_ << std::endl;
 
@@ -57,10 +62,12 @@ void QuadNode::print_leaf_corners() const
 
 std::pair<QuadNode*, bool> QuadNode::insert_gameobject(const GameObject& gameobject)
 {
+	// drop the gameobject if it is out of bounds.
 	if (!rect_.intersect(gameobject.pos))
 	{
 		return {nullptr, false};
 	}
+	// if this node has child nodes -> send gameobject to correct child node
 	for (auto node : childnodes_)
 	{
 		if (node->rect_.intersect(gameobject.pos))
@@ -68,6 +75,9 @@ std::pair<QuadNode*, bool> QuadNode::insert_gameobject(const GameObject& gameobj
 			return node->insert_gameobject(gameobject);
 		}
 	}
+	// if this node has to many gameobject -> subdevide and send all stored objects down
+	// to the correct child node. send gameobject to this function again to get the correct node.
+	// dividing again if all nodes are again in one of the child nodes.
 	if (gameobjects_.size() == max_gameobjects)
 	{
 		divide();
@@ -85,6 +95,7 @@ std::pair<QuadNode*, bool> QuadNode::insert_gameobject(const GameObject& gameobj
 		gameobjects_.clear();
 		return insert_gameobject(gameobject);
 	}
+	// finally pushing the gameobject
 	else if (gameobjects_.size() < max_gameobjects)
 	{
 		gameobjects_.push_back(gameobject);
@@ -99,6 +110,10 @@ Vector2d Rect::mid()
 
 bool Rect::intersect(const Vector2d& pos)
 {
+	// inclusive box intersect since the random function populating can be 1.0,
+	// and i want them all to succeed. :)
+	// But this means gameobjects on boarders will return true for both.
+	// Witch is fine since that loop will break;
 	if (pos.x >= a.x && pos.x <= b.x
 	&&	pos.y >= a.y && pos.y <= d.y)
 	{
