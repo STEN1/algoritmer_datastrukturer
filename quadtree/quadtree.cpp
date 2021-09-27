@@ -71,13 +71,13 @@ std::pair<QuadNode*, bool> QuadNode::insert_gameobject(const GameObject& gameobj
 	if (gameobjects_.size() == max_gameobjects)
 	{
 		divide();
-		for (auto iter = gameobjects_.begin(); iter != gameobjects_.end(); iter++)
+		for (const auto& gameobject : gameobjects_)
 		{
 			for (auto node : childnodes_)
 			{
-				if (node->rect_.intersect((*iter).pos))
+				if (node->rect_.intersect(gameobject.pos))
 				{
-					node->gameobjects_.push_back(*iter);
+					node->gameobjects_.push_back(gameobject);
 					break;
 				}
 			}
