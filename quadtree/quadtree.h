@@ -55,6 +55,7 @@ public:
 	void collapse();
 
 	void print_corners() const;
+	void print_leaf_corners() const;
 	std::pair<QuadNode*, bool> insert_gameobject(const GameObject& gameobject);
 
 	QuadNode* sv() { return sv_; }

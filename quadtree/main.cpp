@@ -38,4 +38,6 @@ int main()
 		}
 	}
 	gameworld.print_corners();
+	std::cout << std::endl;
+	gameworld.print_leaf_corners();
 }

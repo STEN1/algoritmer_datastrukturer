@@ -42,14 +42,17 @@ void QuadNode::collapse()
 void QuadNode::print_corners() const
 {
 	std::cout << rect_ << std::endl;
-	if (sv_)
-		sv_->print_corners();
-	if (so_)
-		so_->print_corners();
-	if (no_)
-		no_->print_corners();
-	if (nv_)
-		nv_->print_corners();
+	for (auto node : childnodes_)
+		node->print_corners();
+}
+
+void QuadNode::print_leaf_corners() const
+{
+	if (childnodes_.size() == 0)
+		std::cout << rect_ << std::endl;
+
+	for (auto node : childnodes_)
+		node->print_leaf_corners();
 }
 
 std::pair<QuadNode*, bool> QuadNode::insert_gameobject(const GameObject& gameobject)
