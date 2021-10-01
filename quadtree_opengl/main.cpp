@@ -57,7 +57,8 @@ int main()
 	gameworld.print_corners();
 	std::cout << std::endl << std::boolalpha;
 	srand(time(nullptr));
-	for (size_t i = 0; i < 128; i++)
+	std::vector<GameObject*> gameobjects;
+	for (size_t i = 0; i < 256; i++)
 	{
 		std::string name;
 		(rand() % 2) ? name = "Adrian" : name = "Espen";
@@ -65,8 +66,9 @@ int main()
 			(((double)rand() / (double)RAND_MAX) - 0.5) * 2.0,
 			(((double)rand() / (double)RAND_MAX) - 0.5) * 2.0
 		};
-		auto [node, confirmation] = gameworld.insert_gameobject(new GameObject{ name, pos , &shader, "assets/Ship04.png" });
-		if (confirmation)
+		auto gameobject = new GameObject{ name, pos , &shader, "assets/Ship04.png" };
+		gameobjects.push_back(gameobject);
+		if (auto [node, confirmation] = gameworld.insert_gameobject(gameobject); confirmation)
 		{
 			std::cout << "inserted gameobject: " << name << ' ' << pos << " in: ";
 			node->print_corners();
@@ -97,7 +99,9 @@ int main()
 		fancy_clear(delta_time);
 		sprite.Render();
 		gameworld.render_world();
-		gameworld.render_gameobjects();
+		//gameworld.render_gameobjects();
+		for (auto gameobject : gameobjects)
+			gameobject->sprite.Render();
 
 		glfwSwapBuffers(window);
 	}
