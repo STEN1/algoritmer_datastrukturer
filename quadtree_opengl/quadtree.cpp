@@ -56,7 +56,7 @@ void QuadNode::print_leaf_corners() const
 	// since a leaf has no children, simply check for children.
 	// divide() populates the childnodes_ vector.
 	// manual insertion will fuck this :)
-	if (childnodes_.size() == 0)
+	if (childnodes_.empty())
 		std::cout << rect_ << std::endl;
 
 	for (auto node : childnodes_)
@@ -105,13 +105,13 @@ std::pair<QuadNode*, bool> QuadNode::insert_gameobject(GameObject* gameobject)
 	if (gameobjects_.size() == max_gameobjects)
 	{
 		divide();
-		for (const auto& gameobject : gameobjects_)
+		for (auto go : gameobjects_)
 		{
 			for (auto node : childnodes_)
 			{
-				if (node->rect_.intersect(gameobject->pos))
+				if (node->rect_.intersect(go->pos))
 				{
-					node->gameobjects_.push_back(gameobject);
+					node->gameobjects_.push_back(go);
 					break;
 				}
 			}
