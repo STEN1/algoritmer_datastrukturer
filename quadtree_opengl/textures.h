@@ -1,4 +1,4 @@
 #pragma once
 #include <string>
 
-unsigned int load_texture(const std::string& texture_path);
+uint32_t load_texture(const std::string& texture_path);

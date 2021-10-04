@@ -25,8 +25,6 @@ double wait_for_delta_time();
 
 int main()
 {
-
-
 	init_glfw();
 	GLFWwindow* window;
 	if (create_opengl_window(window)) std::cout << "Window created" << std::endl;
@@ -37,20 +35,6 @@ int main()
 	{1, -1},
 	{1, 1},
 	{-1, 1},
-	};
-
-	Rect r2 = {
-		{-0.1, -0.1},
-		{ 0.1, -0.1 },
-		{ 0.1, 0.1 },
-		{ -0.1, 0.1 },
-	};
-
-	Sprite sprite(&shader, "assets/Rect.png", r);
-	// Sprite sprite2(&shader, "assets/Rect.png", r2);
-	Vector2d pos = {
-			((double)rand() / (double)RAND_MAX),
-			((double)rand() / (double)RAND_MAX)
 	};
 
 	QuadNode gameworld{ r, &shader };
@@ -97,7 +81,6 @@ int main()
 		input(window);
 
 		fancy_clear(delta_time);
-		sprite.Render();
 		gameworld.render_world();
 		//gameworld.render_gameobjects();
 		for (auto gameobject : gameobjects)

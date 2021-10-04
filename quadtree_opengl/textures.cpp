@@ -9,9 +9,9 @@
 #include <iostream>
 #include <unordered_map>
 #include <string>
-static std::unordered_map<std::string, unsigned int> texture_map;
+static std::unordered_map<std::string, uint32_t> texture_map;
 
-unsigned int load_texture(const std::string& texture_path)
+uint32_t load_texture(const std::string& texture_path)
 {
 	auto iter = texture_map.find(texture_path);
 	if (iter != texture_map.end())
@@ -21,7 +21,7 @@ unsigned int load_texture(const std::string& texture_path)
 	}
 	else
 	{
-		unsigned int texture;
+		uint32_t texture;
 		glGenTextures(1, &texture);
 		glBindTexture(GL_TEXTURE_2D, texture);
 		// set the texture wrapping/filtering options (on the currently bound texture object)
@@ -32,7 +32,7 @@ unsigned int load_texture(const std::string& texture_path)
 		// load and generate the texture
 		int width, height, nrChannels;
 		stbi_set_flip_vertically_on_load(true);
-		unsigned char* data = stbi_load(texture_path.c_str(), &width, &height, &nrChannels, 0);
+		uint8_t* data = stbi_load(texture_path.c_str(), &width, &height, &nrChannels, 0);
 		if (data)
 		{
 			glTexImage2D(GL_TEXTURE_2D, 0, GL_RGBA, width, height, 0, GL_RGBA, GL_UNSIGNED_BYTE, data);
