@@ -42,7 +42,7 @@ int main()
 	std::cout << std::endl << std::boolalpha;
 	srand(time(nullptr));
 	std::vector<GameObject*> gameobjects;
-	for (size_t i = 0; i < 256; i++)
+	for (size_t i = 0; i < 128; i++)
 	{
 		std::string name;
 		(rand() % 2) ? name = "Adrian" : name = "Espen";
