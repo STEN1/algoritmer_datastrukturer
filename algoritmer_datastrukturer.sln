@@ -47,6 +47,8 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "dag_set_eks", "dag_set_eks\
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "quadtree_opengl", "quadtree_opengl\quadtree_opengl.vcxproj", "{F2B0DDF5-C4F3-4F1E-AE1C-746998DC9A23}"
 EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "heap", "heap\heap.vcxproj", "{31A1D7C3-BC91-4A38-A221-90021327E1BF}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|x64 = Debug|x64
@@ -151,6 +153,14 @@ Global
 		{F2B0DDF5-C4F3-4F1E-AE1C-746998DC9A23}.Release|x64.Build.0 = Release|x64
 		{F2B0DDF5-C4F3-4F1E-AE1C-746998DC9A23}.Release|x86.ActiveCfg = Release|Win32
 		{F2B0DDF5-C4F3-4F1E-AE1C-746998DC9A23}.Release|x86.Build.0 = Release|Win32
+		{31A1D7C3-BC91-4A38-A221-90021327E1BF}.Debug|x64.ActiveCfg = Debug|x64
+		{31A1D7C3-BC91-4A38-A221-90021327E1BF}.Debug|x64.Build.0 = Debug|x64
+		{31A1D7C3-BC91-4A38-A221-90021327E1BF}.Debug|x86.ActiveCfg = Debug|Win32
+		{31A1D7C3-BC91-4A38-A221-90021327E1BF}.Debug|x86.Build.0 = Debug|Win32
+		{31A1D7C3-BC91-4A38-A221-90021327E1BF}.Release|x64.ActiveCfg = Release|x64
+		{31A1D7C3-BC91-4A38-A221-90021327E1BF}.Release|x64.Build.0 = Release|x64
+		{31A1D7C3-BC91-4A38-A221-90021327E1BF}.Release|x86.ActiveCfg = Release|Win32
+		{31A1D7C3-BC91-4A38-A221-90021327E1BF}.Release|x86.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -168,6 +178,7 @@ Global
 		{66B44D25-4F0F-4595-BD67-2DD15CA9094C} = {A5E64D9C-19DE-4DC9-B8B3-343BCA4C5A19}
 		{EC4ED6B0-8113-4DA0-9D9B-905DA506594E} = {A5E64D9C-19DE-4DC9-B8B3-343BCA4C5A19}
 		{F2B0DDF5-C4F3-4F1E-AE1C-746998DC9A23} = {A5E64D9C-19DE-4DC9-B8B3-343BCA4C5A19}
+		{31A1D7C3-BC91-4A38-A221-90021327E1BF} = {0705D60A-7FD8-471C-800A-0692E1727620}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {5B920372-553C-4D84-BA1B-B197F2818BF7}
