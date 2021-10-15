@@ -16,6 +16,10 @@ Lag en egen heap implementering, enten ved å bruke en dynamisk struktur eller ar
 #include <vector>
 #include <queue>
 #include <iostream>
+
+#include "heap.h"
+#include <queue>
+
 int main()
 {
 	const auto data = { 9, 17, 2, 7, 5, 8, 1, 22, 4, 11, 6 };
@@ -37,4 +41,15 @@ int main()
 		std::cout << n << ", ";
 	std::cout << std::endl;
 
+	// --------------------------------------------------------
+
+	Heap<int> max_heap;
+	
+	max_heap.push(5);
+	max_heap.push(8);
+	max_heap.push(54);
+	max_heap.push(77);
+	max_heap.push(78);
+	max_heap.push(79);
+	std::cout << max_heap.top();
 }
