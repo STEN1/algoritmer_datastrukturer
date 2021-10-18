@@ -29,10 +29,10 @@ void InsertionSort(std::vector<T>& v)
 }
 
 template<typename T>
-void MergeSort(std::vector<T> v)
+void MergeSort(std::vector<T>& v)
 {
-    int i, j, k, lower1, lower2, size, upper1, upper2;
-    auto n = v.size();
+    int i, j, k, lower1, lower2, size, upper1, upper2, n;
+    n = v.size();
     std::vector<T> hjelp(n);
     PrintVector(v);
     size = 1;
