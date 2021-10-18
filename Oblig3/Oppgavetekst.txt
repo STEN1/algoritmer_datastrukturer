@@ -61,8 +61,6 @@ int main(int argc, char *argv[])
 	kanter {AB(1.0), AC(2.0), BC(2.0), CD(3.0), DE(1.0), AE(5.0),
 	CE(4.0}
 
-	c) implementer funksjonen mst() slik at den returnerer kostnaden for et minste
-	spenntre i grafen.
 #include <iostream>
 #include <list>
 #include <queue>
@@ -92,4 +90,4 @@ struct Graf
 	void settinn_kant(char fra_navn, char til_navn, float vekt);
 	float mst();
 };
-	Implementer Dijkstra's algoritme for oppgaven ovenfor.
+----Implementer Dijkstra's algoritme for oppgaven ovenfor.-------------------------
