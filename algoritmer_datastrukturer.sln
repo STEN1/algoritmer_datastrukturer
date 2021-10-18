@@ -49,6 +49,8 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "quadtree_opengl", "quadtree
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "heap", "heap\heap.vcxproj", "{31A1D7C3-BC91-4A38-A221-90021327E1BF}"
 EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Oblig3", "Oblig3\Oblig3.vcxproj", "{4AA7472E-432A-4B48-A994-3AD926BAAF48}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|x64 = Debug|x64
@@ -161,6 +163,14 @@ Global
 		{31A1D7C3-BC91-4A38-A221-90021327E1BF}.Release|x64.Build.0 = Release|x64
 		{31A1D7C3-BC91-4A38-A221-90021327E1BF}.Release|x86.ActiveCfg = Release|Win32
 		{31A1D7C3-BC91-4A38-A221-90021327E1BF}.Release|x86.Build.0 = Release|Win32
+		{4AA7472E-432A-4B48-A994-3AD926BAAF48}.Debug|x64.ActiveCfg = Debug|x64
+		{4AA7472E-432A-4B48-A994-3AD926BAAF48}.Debug|x64.Build.0 = Debug|x64
+		{4AA7472E-432A-4B48-A994-3AD926BAAF48}.Debug|x86.ActiveCfg = Debug|Win32
+		{4AA7472E-432A-4B48-A994-3AD926BAAF48}.Debug|x86.Build.0 = Debug|Win32
+		{4AA7472E-432A-4B48-A994-3AD926BAAF48}.Release|x64.ActiveCfg = Release|x64
+		{4AA7472E-432A-4B48-A994-3AD926BAAF48}.Release|x64.Build.0 = Release|x64
+		{4AA7472E-432A-4B48-A994-3AD926BAAF48}.Release|x86.ActiveCfg = Release|Win32
+		{4AA7472E-432A-4B48-A994-3AD926BAAF48}.Release|x86.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
