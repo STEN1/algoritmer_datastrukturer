@@ -57,7 +57,6 @@ void MergeSort(std::vector<T>& v)
     } //endwhile
 }
 
-
 auto GenerateRandomVector(int size)
 {
     std::vector<int> v(size);
@@ -66,89 +65,32 @@ auto GenerateRandomVector(int size)
     return v;
 }
 
+template<typename F>
+void GetSortAvg(int size, const F& sortFunc)
+{
+    double avg{};
+    int loops = 10;
+    for (int i = 0; i < loops; i++)
+    {
+        auto v = GenerateRandomVector(size);
+        Timer t;
+        sortFunc(v);
+        avg += t.Stop();
+    }
+    avg /= loops;
+    std::cout << "Sort(" << size << "): " << avg << " milli" << std::endl;
+}
+
 void Eksamen2018Oppgave3a()
 {
-	double InsertionSort10avg{};
-    double InsertionSort100avg{};
-    double InsertionSort1000avg{};
-    double InsertionSort10000avg{};
-    double MergeSort10avg{};
-    double MergeSort100avg{};
-    double MergeSort1000avg{};
-    double MergeSort10000avg{};
-
-    auto loops = 10;
-
-    for (size_t i = 0; i < loops; i++)
-    {
-        {
-            auto v = GenerateRandomVector(10);
-            Timer t;
-            InsertionSort(v);
-            InsertionSort10avg += t.Stop();
-        }
-        {
-            auto v = GenerateRandomVector(100);
-            Timer t;
-            InsertionSort(v);
-            InsertionSort100avg += t.Stop();
-        }
-        {
-            auto v = GenerateRandomVector(1000);
-            Timer t;
-            InsertionSort(v);
-            InsertionSort1000avg += t.Stop();
-        }
-        {
-            auto v = GenerateRandomVector(10000);
-            Timer t;
-            InsertionSort(v);
-            InsertionSort10000avg += t.Stop();
-        }
-        {
-            auto v = GenerateRandomVector(10);
-            Timer t;
-            MergeSort(v);
-            MergeSort10avg += t.Stop();
-        }
-        {
-            auto v = GenerateRandomVector(100);
-            Timer t;
-            MergeSort(v);
-            MergeSort100avg += t.Stop();
-        }
-        {
-            auto v = GenerateRandomVector(1000);
-            Timer t;
-            MergeSort(v);
-            MergeSort1000avg += t.Stop();
-        }
-        {
-            auto v = GenerateRandomVector(10000);
-            Timer t;
-            MergeSort(v);
-            MergeSort10000avg += t.Stop();
-        }
-    }
-
-    InsertionSort10avg /= loops;
-    InsertionSort100avg /= loops;
-    InsertionSort1000avg /= loops;
-    InsertionSort10000avg /= loops;
-    MergeSort10avg /= loops;
-    MergeSort100avg /= loops;
-    MergeSort1000avg /= loops;
-    MergeSort10000avg /= loops;
-
-    auto unit = " Milliseconds";
-
-    std::cout << "Insertion sort avg(10): " << InsertionSort10avg << unit << std::endl;
-    std::cout << "Insertion sort avg(100): " << InsertionSort100avg << unit << std::endl;
-    std::cout << "Insertion sort avg(1000): " << InsertionSort1000avg << unit << std::endl;
-    std::cout << "Insertion sort avg(10000): " << InsertionSort10000avg << unit << std::endl;
-    std::cout << std::endl;
-    std::cout << "Merge sort avg(10): " << MergeSort10avg << unit << std::endl;
-    std::cout << "Merge sort avg(100): " << MergeSort100avg << unit << std::endl;
-    std::cout << "Merge sort avg(1000): " << MergeSort1000avg << unit << std::endl;
-    std::cout << "Merge sort avg(10000): " << MergeSort10000avg << unit << std::endl;
+    std::cout << "-----------MERGE SORT---------------\n";
+    GetSortAvg<void(std::vector<int>&)>(10, MergeSort);
+    GetSortAvg<void(std::vector<int>&)>(100, MergeSort);
+    GetSortAvg<void(std::vector<int>&)>(1000, MergeSort);
+    GetSortAvg<void(std::vector<int>&)>(10000, MergeSort);
+    std::cout << "-----------INSERTION SORT-----------\n";
+    GetSortAvg<void(std::vector<int>&)>(10, InsertionSort);
+    GetSortAvg<void(std::vector<int>&)>(100, InsertionSort);
+    GetSortAvg<void(std::vector<int>&)>(1000, InsertionSort);
+    GetSortAvg<void(std::vector<int>&)>(10000, InsertionSort);
 }
