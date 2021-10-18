@@ -70,6 +70,31 @@ void MergeSort(std::vector<T>& v)
     } //endwhile
 }
 
+#define ever ;;
+template<typename T>
+void QuickSort(std::vector<T>& v, int left, int right)
+{
+    if (left < right)
+    {
+        auto pivot = v[(left + right) / 2];
+        auto i = left;
+        auto j = right;
+        for (ever)
+        {
+            while (v[i] < pivot)
+                i++;
+            while (pivot < v[j])
+                j--;
+            if (i < j)
+                std::swap(v[i], v[j]);
+            else
+                break;
+        }
+        QuickSort(v, left, i - 1);
+        QuickSort(v, i + 1, right);
+    }
+}
+
 int main()
 {
 	auto data = { 17, 14, 4, 7, 1, 2, 5, 9, 11 };
@@ -81,5 +106,12 @@ int main()
     v = data;
     std::cout << "Merge sort:" << std::endl;
     MergeSort(v);
+    std::cout << std::endl;
+
+    v = data;
+    std::cout << "QuickSort:" << std::endl;
+    PrintVector(v);
+    QuickSort(v, 0, v.size() - 1);
+    PrintVector(v);
     std::cout << std::endl;
 }
