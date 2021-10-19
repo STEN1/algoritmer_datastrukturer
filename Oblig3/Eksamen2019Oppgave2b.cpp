@@ -75,5 +75,5 @@ void Eksamen2019Oppgave2b()
     s += u8"i et array med size 2. Så sammenlignes minste verdier fra to arrayer\n";
     s += u8"og puttet i et array med size 4, helt til man får et sortert array av\n";
     s += u8"hele datasettet.\n";
-    std::cout << (const char*)s.c_str();
+    std::wcout << (const char*)s.c_str();
 }
