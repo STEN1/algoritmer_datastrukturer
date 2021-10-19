@@ -3,7 +3,7 @@
 #include <vector>
 
 template<typename T>
-void InsertionSort(std::vector<T>& v)
+static void InsertionSort(std::vector<T>& v)
 {
     int j{};
     int n = v.size();
@@ -19,7 +19,7 @@ void InsertionSort(std::vector<T>& v)
 }
 
 template<typename T>
-void MergeSort(std::vector<T>& v)
+static void MergeSort(std::vector<T>& v)
 {
     int i, j, k, lower1, lower2, size, upper1, upper2, n;
     n = v.size();
@@ -57,7 +57,7 @@ void MergeSort(std::vector<T>& v)
     } //endwhile
 }
 
-auto GenerateRandomVector(int size)
+static auto GenerateRandomVector(int size)
 {
     std::vector<int> v(size);
     for (auto& e : v)
@@ -66,7 +66,7 @@ auto GenerateRandomVector(int size)
 }
 
 template<typename F>
-void GetSortAvg(int size, const F& sortFunc)
+static void GetSortAvg(int size, const F& sortFunc)
 {
     double avg{};
     int loops = 10;
