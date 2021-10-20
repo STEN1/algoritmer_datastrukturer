@@ -51,15 +51,14 @@ int main(int argc, char *argv[])
 ----Eksamensoppgave 2019 - 4a,b (grafer)------------------------------
 ----(programmering) I denne oppgaven skal du bruke kode som er gitt til slutt i
 ----oppgaven, uten endringer.-----------------------------------------
-	a) Implementer funksjonene Node::settinn_kant(), Graf::settinn_node() og
-	Graf::finn_node(). I sistnevnte funksjon skal du benytte den interne strukturen til
-	å søke etter en node med gitt navn. Funksjonen skal returnere en
-	peker til noden dersom den fins, og nullptr ellers.
+	a)	Implementer funksjonene Node::settinn_kant(), Graf::settinn_node() og
+		Graf::finn_node(). I sistnevnte funksjon skal du benytte den interne strukturen til
+		å søke etter en node med gitt navn. Funksjonen skal returnere en
+		peker til noden dersom den fins, og nullptr ellers.
 
-	b) 1. Implementer funksjonen Graf::settinn_kant()
-	2. Lag en testgraf i main() med noder {A, B, C, D og E} og
-	kanter {AB(1.0), AC(2.0), BC(2.0), CD(3.0), DE(1.0), AE(5.0),
-	CE(4.0}
+	b)	1. Implementer funksjonen Graf::settinn_kant()
+		2. Lag en testgraf i main() med noder {A, B, C, D og E} og
+		kanter {AB(1.0), AC(2.0), BC(2.0), CD(3.0), DE(1.0), AE(5.0), CE(4.0}
 
 #include <iostream>
 #include <list>

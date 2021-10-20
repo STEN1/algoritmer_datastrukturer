@@ -70,7 +70,7 @@ void Eksamen2019Oppgave2b()
     // For the æ, ø, å :D
     SetConsoleOutputCP(CP_UTF8);
     std::u8string s{};
-    s += u8"I mergesort så flettes enkelte elementer inn i hverandre.\n";
+    s += u8"\nI mergesort så flettes enkelte elementer inn i hverandre.\n";
     s += u8"Enkeltverdier blir først sammenlignet og puttet i rett rekkefølge\n";
     s += u8"i et array med size 2. Så sammenlignes minste verdier fra to arrayer\n";
     s += u8"og puttet i et array med size 4, helt til man får et sortert array av\n";
