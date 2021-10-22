@@ -1,6 +1,7 @@
 #include "Timer.h"
 #include <iostream>
 #include <vector>
+#include <algorithm>
 
 template<typename T>
 static void InsertionSort(std::vector<T>& v)
@@ -57,6 +58,12 @@ static void MergeSort(std::vector<T>& v)
     } //endwhile
 }
 
+template<typename T>
+void StdSort(std::vector<T>& v)
+{
+    std::sort(v.begin(), v.end());
+}
+
 static auto GenerateRandomVector(int size)
 {
     std::vector<int> v(size);
@@ -65,8 +72,8 @@ static auto GenerateRandomVector(int size)
     return v;
 }
 
-template<typename T>
-static void GetSortAvg(int size, void sortFunc(std::vector<T>&))
+template<typename F>
+static void GetSortAvg(int size, const F& sortFunc)
 {
     double avg{};
     int loops = 10;
@@ -86,13 +93,19 @@ static void GetSortAvg(int size, void sortFunc(std::vector<T>&))
 void Eksamen2018Oppgave3a()
 {
     std::cout << "-----------MERGE SORT---------------\n";
-    GetSortAvg<int>(10, MergeSort);
-    GetSortAvg<int>(100, MergeSort);
-    GetSortAvg<int>(1000, MergeSort);
-    GetSortAvg<int>(10000, MergeSort);
+    GetSortAvg<void(std::vector<int>&)>(10, MergeSort);
+    GetSortAvg<void(std::vector<int>&)>(100, MergeSort);
+    GetSortAvg<void(std::vector<int>&)>(1000, MergeSort);
+    GetSortAvg<void(std::vector<int>&)>(10000, MergeSort);
     std::cout << "-----------INSERTION SORT-----------\n";
-    GetSortAvg<int>(10, InsertionSort);
-    GetSortAvg<int>(100, InsertionSort);
-    GetSortAvg<int>(1000, InsertionSort);
-    GetSortAvg<int>(10000, InsertionSort);
+    GetSortAvg<void(std::vector<int>&)>(10, InsertionSort);
+    GetSortAvg<void(std::vector<int>&)>(100, InsertionSort);
+    GetSortAvg<void(std::vector<int>&)>(1000, InsertionSort);
+    GetSortAvg<void(std::vector<int>&)>(10000, InsertionSort);
+    std::cout << "-----------STD SORT-----------\n";
+    GetSortAvg<void(std::vector<int>&)>(10, StdSort);
+    GetSortAvg<void(std::vector<int>&)>(100, StdSort);
+    GetSortAvg<void(std::vector<int>&)>(1000, StdSort);
+    GetSortAvg<void(std::vector<int>&)>(10000, StdSort);
+
 }
