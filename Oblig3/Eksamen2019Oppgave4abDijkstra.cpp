@@ -50,6 +50,7 @@ struct Graf
 			fra->settinn_kant({ vekt, til });
 	}
 	float mst();
+	void Dijkstra();
 };
 
 
