@@ -30,6 +30,21 @@ struct Vei
 			lengde += kant.m_vekt;
 		return lengde;
 	}
+	Node* GetLastNode() const
+	{
+		if (!m_kanter.empty())
+		{
+			return m_kanter[m_kanter.size() - 1].m_tilnode;
+		}
+		return nullptr;
+	}
+	void Print()
+	{
+		std::cout << "Vei: ";
+		for (auto& kant : m_kanter)
+			std::cout << kant.m_tilnode->m_navn;
+		std::cout << " (" << *this << ")" << std::endl;
+	}
 	operator float() const { return KalkulerLengde(); }
 };
 struct Graf
@@ -62,7 +77,30 @@ struct Graf
 			fra->settinn_kant({ vekt, til });
 	}
 	float mst();
-	void Dijkstra();
+	void Dijkstra(Node* start, Node* end)
+	{
+		std::priority_queue<Vei, std::vector<Vei>, std::greater<Vei>> apq;
+
+		// setup
+		Kant startKant{ 0.f, start };
+		Vei startVei;
+		startVei.m_kanter.push_back(startKant);
+		apq.push(startVei);
+		while (!apq.empty() && !end->m_besokt)
+		{
+			Node* tempNode = apq.top().GetLastNode();
+			Vei tempVei = apq.top();
+			apq.pop();
+
+			for (auto& kant : tempNode->m_kanter)
+			{
+				Vei nyVei = tempVei;
+				nyVei.m_kanter.push_back(kant);
+				nyVei.Print();
+				apq.push(nyVei);
+			}
+		}
+	}
 };
 
 
@@ -90,6 +128,5 @@ void Eksamen2019Oppgave4abDijkstra()
 			std::cout << node->m_navn << kant.m_tilnode->m_navn << "(" << kant.m_vekt << "), ";
 		std::cout << std::endl;
 	}
-
-
+	graf.Dijkstra(graf.finn_node('A'), graf.finn_node('D'));
 }
