@@ -20,6 +20,18 @@ struct Kant
 	// bool operator > (const Kant& k) const { return m_vekt > k.m_vekt; }
 	operator float() const { return m_vekt; }
 };
+struct Vei
+{
+	std::vector<Kant> m_kanter;
+	float KalkulerLengde() const
+	{
+		float lengde{};
+		for (auto& kant : m_kanter)
+			lengde += kant.m_vekt;
+		return lengde;
+	}
+	operator float() const { return KalkulerLengde(); }
+};
 struct Graf
 {
 	std::list<Node*> noder;
