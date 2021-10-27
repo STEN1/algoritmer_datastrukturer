@@ -77,7 +77,7 @@ struct Graf
 			fra->settinn_kant({ vekt, til });
 	}
 	float mst();
-	void Dijkstra(Node* start, Node* end)
+	Vei Dijkstra(Node* start, Node* end)
 	{
 		std::priority_queue<Vei, std::vector<Vei>, std::greater<Vei>> apq;
 		std::vector<Node*> visited;
@@ -92,7 +92,7 @@ struct Graf
 			Node* tempNode = apq.top().GetLastNode();
 			if (tempNode == end)
 			{
-				kortesteVei = apq.top();
+				kortesteVei = apq.top(); // bare å returnere denne hær egentlig
 				break;
 			}
 			Vei tempVei = apq.top();
@@ -118,6 +118,8 @@ struct Graf
 		for (auto& kant : kortesteVei.m_kanter)
 			std::cout << kant.m_tilnode->m_navn;
 		std::cout << " (" << kortesteVei << ")" << std::endl;
+
+		return kortesteVei;
 	}
 };
 
