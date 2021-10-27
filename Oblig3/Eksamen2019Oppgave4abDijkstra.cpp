@@ -80,26 +80,44 @@ struct Graf
 	void Dijkstra(Node* start, Node* end)
 	{
 		std::priority_queue<Vei, std::vector<Vei>, std::greater<Vei>> apq;
-
+		std::vector<Node*> visited;
 		// setup
 		Kant startKant{ 0.f, start };
 		Vei startVei;
 		startVei.m_kanter.push_back(startKant);
 		apq.push(startVei);
+		Vei kortesteVei;
 		while (!apq.empty() && !end->m_besokt)
 		{
 			Node* tempNode = apq.top().GetLastNode();
+			if (tempNode == end)
+			{
+				kortesteVei = apq.top();
+				break;
+			}
 			Vei tempVei = apq.top();
 			apq.pop();
-
+			tempNode->m_besokt = true;
+			visited.push_back(tempNode);
 			for (auto& kant : tempNode->m_kanter)
 			{
-				Vei nyVei = tempVei;
-				nyVei.m_kanter.push_back(kant);
-				nyVei.Print();
-				apq.push(nyVei);
+				if (!kant.m_tilnode->m_besokt)
+				{
+					Vei nyVei = tempVei;
+					nyVei.m_kanter.push_back(kant);
+					nyVei.Print();
+					apq.push(nyVei);
+				}
 			}
+			std::cout << std::endl;
 		}
+		for (auto node : visited)
+			node->m_besokt = false;
+
+		std::cout << "Korteste vei: ";
+		for (auto& kant : kortesteVei.m_kanter)
+			std::cout << kant.m_tilnode->m_navn;
+		std::cout << " (" << kortesteVei << ")" << std::endl;
 	}
 };
 
