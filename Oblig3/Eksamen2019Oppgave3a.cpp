@@ -54,7 +54,7 @@ void Eksamen2019Oppgave3a()
 	for (auto&[key, val] : uordnet_sett)
 		std::cout << "Key: " << key << ' ' << "Value: " << val << std::endl;
 
-	std::cout << "\nSkriver ut i samme rekkefølge som innsetting.\n";
+	std::cout << (const char*)u8"\nSkriver ut i samme rekkefølge som innsetting.\n";
 	
 	SkrivUtTestSet(uordnet_sett, 12, 13);
 	SkrivUtTestSet(uordnet_sett, 20, 21);
