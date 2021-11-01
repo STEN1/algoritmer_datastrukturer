@@ -87,7 +87,7 @@ struct Graf
 		startVei.m_kanter.push_back(startKant);
 		apq.push(startVei);
 		Vei kortesteVei;
-		while (!apq.empty() && !end->m_besokt)
+		while (!apq.empty()/* && !end->m_besokt*/)
 		{
 			Node* tempNode = apq.top().GetLastNode();
 			if (tempNode == end)
@@ -111,6 +111,7 @@ struct Graf
 			}
 			std::cout << std::endl;
 		}
+
 		for (auto node : visited)
 			node->m_besokt = false;
 

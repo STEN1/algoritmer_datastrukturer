@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio Version 16
-VisualStudioVersion = 16.0.31702.278
+# Visual Studio Version 17
+VisualStudioVersion = 17.0.31825.309
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "01. Lineære datastrukturer", "01. Lineære datastrukturer", "{7E17517B-A66C-4F1F-AA97-3C92A14D608B}"
 EndProject
@@ -52,6 +52,8 @@ EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Oblig3", "Oblig3\Oblig3.vcxproj", "{4AA7472E-432A-4B48-A994-3AD926BAAF48}"
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Sortering", "Sortering\Sortering.vcxproj", "{E2DBCE57-7E05-4A01-AFC9-4512A1D48B9A}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Grafer", "Grafer\Grafer.vcxproj", "{89867030-1C7A-4B3C-9FF8-6E637776E9AE}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -181,6 +183,14 @@ Global
 		{E2DBCE57-7E05-4A01-AFC9-4512A1D48B9A}.Release|x64.Build.0 = Release|x64
 		{E2DBCE57-7E05-4A01-AFC9-4512A1D48B9A}.Release|x86.ActiveCfg = Release|Win32
 		{E2DBCE57-7E05-4A01-AFC9-4512A1D48B9A}.Release|x86.Build.0 = Release|Win32
+		{89867030-1C7A-4B3C-9FF8-6E637776E9AE}.Debug|x64.ActiveCfg = Debug|x64
+		{89867030-1C7A-4B3C-9FF8-6E637776E9AE}.Debug|x64.Build.0 = Debug|x64
+		{89867030-1C7A-4B3C-9FF8-6E637776E9AE}.Debug|x86.ActiveCfg = Debug|Win32
+		{89867030-1C7A-4B3C-9FF8-6E637776E9AE}.Debug|x86.Build.0 = Debug|Win32
+		{89867030-1C7A-4B3C-9FF8-6E637776E9AE}.Release|x64.ActiveCfg = Release|x64
+		{89867030-1C7A-4B3C-9FF8-6E637776E9AE}.Release|x64.Build.0 = Release|x64
+		{89867030-1C7A-4B3C-9FF8-6E637776E9AE}.Release|x86.ActiveCfg = Release|Win32
+		{89867030-1C7A-4B3C-9FF8-6E637776E9AE}.Release|x86.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -200,6 +210,7 @@ Global
 		{F2B0DDF5-C4F3-4F1E-AE1C-746998DC9A23} = {A5E64D9C-19DE-4DC9-B8B3-343BCA4C5A19}
 		{31A1D7C3-BC91-4A38-A221-90021327E1BF} = {0705D60A-7FD8-471C-800A-0692E1727620}
 		{E2DBCE57-7E05-4A01-AFC9-4512A1D48B9A} = {7E6313B5-3F3C-4B45-B8EB-CA5342841B7E}
+		{89867030-1C7A-4B3C-9FF8-6E637776E9AE} = {A1FC0E0E-B389-437D-A8C0-5D05358E126F}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {5B920372-553C-4D84-BA1B-B197F2818BF7}
