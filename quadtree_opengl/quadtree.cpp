@@ -102,6 +102,7 @@ std::pair<QuadNode*, bool> QuadNode::insert_gameobject(GameObject* gameobject)
 	// if this node has to many gameobject -> subdevide and send all stored objects down
 	// to the correct child node. send gameobject to this function again to get the correct node.
 	// dividing again if all nodes are again in one of the child nodes.
+
 	if (gameobjects_.size() == max_gameobjects)
 	{
 		divide();

@@ -25,7 +25,7 @@ const unsigned int Sprite::indices[] = {
 Sprite::Sprite(Shader* shader, const std::string& texture_path, const Rect& rect)
 	:shader(shader)
 {
-	texture = load_texture(texture_path.c_str());
+	texture = load_texture(texture_path);
 
 	for (size_t i = 0; i < sizeof(vertices)/sizeof(float); i++)
 	{
