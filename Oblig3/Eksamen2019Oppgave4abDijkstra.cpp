@@ -76,7 +76,27 @@ struct Graf
 		if (fra && til)
 			fra->settinn_kant({ vekt, til });
 	}
-	float mst();
+	float mst() // Prim
+	{
+		float sum{};
+		std::priority_queue<Kant, std::vector<Kant>, std::greater<Kant>> apq;
+		apq.emplace(0.f, noder.front());
+		do
+		{
+			auto kant = apq.top();
+			auto node = kant.m_tilnode;
+			apq.pop();
+			if (!node->m_besokt)
+			{
+				sum += kant.m_vekt;
+				node->m_besokt = true;
+				std::cout << kant.m_tilnode->m_navn;
+				for (auto& kant : node->m_kanter)
+					apq.push(kant);
+			}
+		} while (!apq.empty());
+		return sum;
+	}
 	Vei Dijkstra(Node* start, Node* end)
 	{
 		std::priority_queue<Vei, std::vector<Vei>, std::greater<Vei>> apq;
@@ -150,4 +170,6 @@ void Eksamen2019Oppgave4abDijkstra()
 		std::cout << std::endl;
 	}
 	graf.Dijkstra(graf.finn_node('A'), graf.finn_node('D'));
+
+	std::cout << graf.mst() << std::endl;
 }
