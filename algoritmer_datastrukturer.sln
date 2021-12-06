@@ -63,6 +63,8 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Eksamen2020", "Eksamen2020\
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "EksamenVår2021", "EksamenVår2021\EksamenVår2021.vcxproj", "{1C5FAE08-7ED4-4316-BD7B-2811B4483624}"
 EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Eksamen2021", "Eksamen2021\Eksamen2021.vcxproj", "{7D5BFC39-EB57-4842-B26E-4BD3AD9E3821}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|x64 = Debug|x64
@@ -223,6 +225,14 @@ Global
 		{1C5FAE08-7ED4-4316-BD7B-2811B4483624}.Release|x64.Build.0 = Release|x64
 		{1C5FAE08-7ED4-4316-BD7B-2811B4483624}.Release|x86.ActiveCfg = Release|Win32
 		{1C5FAE08-7ED4-4316-BD7B-2811B4483624}.Release|x86.Build.0 = Release|Win32
+		{7D5BFC39-EB57-4842-B26E-4BD3AD9E3821}.Debug|x64.ActiveCfg = Debug|x64
+		{7D5BFC39-EB57-4842-B26E-4BD3AD9E3821}.Debug|x64.Build.0 = Debug|x64
+		{7D5BFC39-EB57-4842-B26E-4BD3AD9E3821}.Debug|x86.ActiveCfg = Debug|Win32
+		{7D5BFC39-EB57-4842-B26E-4BD3AD9E3821}.Debug|x86.Build.0 = Debug|Win32
+		{7D5BFC39-EB57-4842-B26E-4BD3AD9E3821}.Release|x64.ActiveCfg = Release|x64
+		{7D5BFC39-EB57-4842-B26E-4BD3AD9E3821}.Release|x64.Build.0 = Release|x64
+		{7D5BFC39-EB57-4842-B26E-4BD3AD9E3821}.Release|x86.ActiveCfg = Release|Win32
+		{7D5BFC39-EB57-4842-B26E-4BD3AD9E3821}.Release|x86.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
